@@ -27,10 +27,16 @@ void printCache(int cache[ARRAYSIZE]) {
 	// }
 	// std::cout << std::endl;
 
-	int output;
-	std::cin >> output;
+	int output0;
+	int output1;
+	int output2;
+	int output3;
+	std::cin >> output0;
+	std::cin >> output1;
+	std::cin >> output2;
+	std::cin >> output3;
 	// std::cout << "output : " << output << std::endl;
-	if (output != cache[0] * 1000 + cache[1] * 100 + cache[2] * 10 + cache[3] || std::cin.fail()) {
+	if (output0 != cache[0] || output1 != cache[1] || output2 != cache[2] || output3 != cache[3] || std::cin.fail()) {
 		std::cout << "KO" << std::endl;
 		exit(0);
 	}

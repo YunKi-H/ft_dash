@@ -24,6 +24,9 @@ bool isnum(std::string str) {
 void printCache(int cache[ARRAYSIZE]) {
 	for (int i = 0; i < ARRAYSIZE; i++) {
 		std::cout << cache[i];
+		if (i != ARRAYSIZE - 1) {
+			std::cout << " ";
+		}
 	}
 	std::cout << std::endl;
 
