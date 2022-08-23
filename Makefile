@@ -14,7 +14,7 @@ OBJS2		=	$(SRCS2:.cpp=.o)
 
 $(NAME)		:	$(OBJS) $(OBJS2)
 				$(CXX) $(CXXFLAGS) -o corrector $(OBJS)
-				$(CXX) $(CXXFLAGS) -o page_replace $(OBJS2)
+				$(CXX) $(CXXFLAGS) -o vpdlwldkfrhflwma $(OBJS2)
 
 all			:	$(NAME)
 
@@ -25,7 +25,7 @@ clean		:
 				$(RM) $(OBJS) $(OBJS2)
 
 fclean		:	clean
-				$(RM) $(NAME) page_replace
+				$(RM) $(NAME) vpdlwldkfrhflwma
 
 re			:
 				$(MAKE) fclean
