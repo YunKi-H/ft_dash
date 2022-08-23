@@ -1,20 +1,22 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <utility>
+//#include <string> //std::string
+//#include <cstdlib> //std::strtol
+//#include <cctype> //std::isdigit
 
 #define ARRAYSIZE 4
 
+typedef std::size_t			size_type;
+
 bool isnum(std::string str) {
-	size_t i = 0;
+	size_type i = 0;
 	if (str[i] == '+') {
 		i += 1;
 	}
-	if (i >= str.length()) {
-		return false;
-	}
+	//if (i >= str.length()) {
+	//	return false;
+	//}
 	for (; i < str.length(); ++i) {
-		if (!isdigit(str[i])) {
+		if (!std::isdigit(str[i])) {
 			return false;
 		}
 	}
@@ -22,20 +24,11 @@ bool isnum(std::string str) {
 }
 
 void printCache(int cache[ARRAYSIZE]) {
-	for (int i = 0; i < ARRAYSIZE; i++) {
-		std::cout << cache[i];
-		if (i != ARRAYSIZE - 1) {
-			std::cout << " ";
-		}
+	size_type i = 0;
+	for (; i < ARRAYSIZE - 1; i++) {
+		std::cout << cache[i] << " ";
 	}
-	std::cout << std::endl;
-
-	// int output;
-	// std::cin >> output;
-	// if (output != cache[0] * 1000 + cache[1] * 100 + cache[2] * 10 + cache[3]) {
-	// 	std::cout << "KO" << std::endl;
-	// 	exit(0);
-	// }
+	std::cout << cache[i] << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -46,7 +39,7 @@ int main(int argc, char **argv) {
 			std::cerr << "Error" << std::endl;
 			return 1;
 		}
-		long long temp = strtol(argv[i], NULL, 10);
+		long long temp = std::strtol(argv[i], NULL, 10);
 		if (temp > INT_MAX || temp <= 0) {
 			std::cerr << "Error" << std::endl;
 			return 1;
