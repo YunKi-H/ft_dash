@@ -21,17 +21,32 @@ bool isnum(std::string str) {
 	return true;
 }
 
+void printCache(int cache[ARRAYSIZE]) {
+	// for (int i = 0; i < ARRAYSIZE; i++) {
+	// 	std::cout << cache[i];
+	// }
+	// std::cout << std::endl;
+
+	int output;
+	std::cin >> output;
+	// std::cout << "output : " << output << std::endl;
+	if (output != cache[0] * 1000 + cache[1] * 100 + cache[2] * 10 + cache[3] || std::cin.fail()) {
+		std::cout << "KO" << std::endl;
+		exit(0);
+	}
+}
+
 int main(int argc, char **argv) {
 	// initialize
 	int input[argc];
 	for (int i = 1; i < argc; ++i) {
 		if (!isnum(argv[i])) {
-			std::cout << "Error" << std::endl;
+			std::cerr << "Error" << std::endl;
 			return 1;
 		}
 		long long temp = strtol(argv[i], NULL, 10);
 		if (temp > INT_MAX || temp <= 0) {
-			std::cout << "Error" << std::endl;
+			std::cerr << "Error" << std::endl;
 			return 1;
 		}
 		input[i] = temp;
@@ -49,10 +64,7 @@ int main(int argc, char **argv) {
 			}
 		}
 		if (isalready) {
-			for (int i = 0; i < ARRAYSIZE; i++) {
-				std::cout << cache[i];
-			}
-			std::cout << std::endl;
+			printCache(cache);
 			continue;
 		}
 		// is empty space
@@ -65,10 +77,7 @@ int main(int argc, char **argv) {
 			}
 		}
 		if (isempty) {
-			for (int i = 0; i < ARRAYSIZE; i++) {
-				std::cout << cache[i];
-			}
-			std::cout << std::endl;
+			printCache(cache);
 			continue;
 		}
 		// else == page fault
@@ -99,9 +108,12 @@ int main(int argc, char **argv) {
 			}
 		}
 		cache[max.second] = input[idx];
-		for (int i = 0; i < ARRAYSIZE; i++) {
-			std::cout << cache[i];
-		}
-		std::cout << std::endl;
+		printCache(cache);
 	}
+	int output;
+	if (std::cin >> output) {
+		std::cout << "KO" << std::endl;
+		return 0;
+	}
+	std::cout << "OK" << std::endl;
 }
