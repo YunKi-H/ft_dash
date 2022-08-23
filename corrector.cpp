@@ -39,7 +39,7 @@ void printCache(int cache[ARRAYSIZE]) {
 	}
 }
 
-int main() {
+int main(int argc, char** argv) {
 	// initialize
 	int input[argc];
 	for (int i = 1; i < argc; ++i) {
