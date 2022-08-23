@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <utility>
 
 #define ARRAYSIZE 4
 
@@ -22,27 +21,25 @@ bool isnum(std::string str) {
 }
 
 void printCache(int cache[ARRAYSIZE]) {
-	// for (int i = 0; i < ARRAYSIZE; i++) {
-	// 	std::cout << cache[i];
-	// }
-	// std::cout << std::endl;
+	std::vector<int> output;
 
-	int output0;
-	int output1;
-	int output2;
-	int output3;
-	std::cin >> output0;
-	std::cin >> output1;
-	std::cin >> output2;
-	std::cin >> output3;
-	// std::cout << "output : " << output << std::endl;
-	if (output0 != cache[0] || output1 != cache[1] || output2 != cache[2] || output3 != cache[3] || std::cin.fail()) {
-		std::cout << "KO" << std::endl;
-		exit(0);
+	for (int i = 0; i < ARRAYSIZE; i++) {
+		int temp;
+		std::cin >> temp;
+		output.push_back(temp);
+	}
+
+	int i = 0;
+	for (std::vector<int>::iterator it = output.begin(); it != output.end(); it++, i++) {
+		if (*it != cache[i] || std::cin.fail()) {
+			std::cout << "KO" << std::endl;
+			exit(0);
+		}
+
 	}
 }
 
-int main(int argc, char **argv) {
+int main() {
 	// initialize
 	int input[argc];
 	for (int i = 1; i < argc; ++i) {
