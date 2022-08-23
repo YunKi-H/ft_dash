@@ -1,7 +1,7 @@
 NAME		=	corrector
 
 CXX			=	c++
-# CXXFLAGS	=	-Wall -Wextra -Werror
+CXXFLAGS	=	-Wall -Wextra -Werror
 INCLUDES	=	-I.
 RM			=	rm -f
 
@@ -13,13 +13,13 @@ OBJS		=	$(SRCS:.cpp=.o)
 OBJS2		=	$(SRCS2:.cpp=.o)
 
 $(NAME)		:	$(OBJS) $(OBJS2)
-				$(CXX) -o corrector $(OBJS)
-				$(CXX) -o page_replace $(OBJS2)
+				$(CXX) $(CXXFLAGS) -o corrector $(OBJS)
+				$(CXX) $(CXXFLAGS) -o page_replace $(OBJS2)
 
 all			:	$(NAME)
 
 %.o			:	%.cpp
-				$(CXX) -o $@ -c $< $(INCLUDES)
+				$(CXX) $(CXXFLAGS) -o $@ -c $< $(INCLUDES)
 
 clean		:
 				$(RM) $(OBJS) $(OBJS2)

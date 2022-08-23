@@ -6,7 +6,7 @@
 #define ARRAYSIZE 4
 
 bool isnum(std::string str) {
-	int i = 0;
+	size_t i = 0;
 	if (str[i] == '+') {
 		i += 1;
 	}
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
 
 	// run
 	int cache[ARRAYSIZE] = {};
-	for (size_t idx = 1; idx < argc; ++idx) {
+	for (int idx = 1; idx < argc; ++idx) {
 		// is already in
 		bool isalready = false;
 		for (int i = 0; i < ARRAYSIZE; ++i) {
@@ -84,7 +84,7 @@ int main(int argc, char **argv) {
 		}
 		// else == page fault
 		// get_distance
-		size_t dist[ARRAYSIZE] = {};
+		int dist[ARRAYSIZE] = {};
 		int flag = 0;
 		for (int i = idx + 1; i < argc; ++i) {
 			for (int j = 0; j < ARRAYSIZE; ++j) {
