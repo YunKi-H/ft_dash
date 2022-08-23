@@ -26,12 +26,12 @@ int main(int argc, char **argv) {
 	int input[argc];
 	for (int i = 1; i < argc; ++i) {
 		if (!isnum(argv[i])) {
-			std::cout << "Error1" << std::endl;
+			std::cout << "Error" << std::endl;
 			return 1;
 		}
 		long long temp = strtol(argv[i], NULL, 10);
 		if (temp > INT_MAX || temp <= 0) {
-			std::cout << "Error2" << std::endl;
+			std::cout << "Error" << std::endl;
 			return 1;
 		}
 		input[i] = temp;
