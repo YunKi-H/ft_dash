@@ -3,8 +3,13 @@
 .DS_Store
 *.o
 
+
 *.swp
 
-#presentation
+#   our files    #
 
-#*.cpp
+presentation
+
+*.cpp
+
+Makefile
