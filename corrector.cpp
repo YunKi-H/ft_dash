@@ -32,9 +32,12 @@ void printCache(int cache[ARRAYSIZE]) {
 	int i = 0;
 	for (std::vector<int>::iterator it = output.begin(); it != output.end(); it++, i++) {
 		if (*it != cache[i] || std::cin.fail()) {
-			std::cout << "KO" << std::endl;
+			std::cerr << "KO" << std::endl;
 			exit(0);
 		}
+		//if (i >= argc) {
+		//	std::cerr << "KO" << std::endl;
+		//}
 
 	}
 }
@@ -44,12 +47,10 @@ int main(int argc, char** argv) {
 	int input[argc];
 	for (int i = 1; i < argc; ++i) {
 		if (!isnum(argv[i])) {
-			std::cerr << "Error" << std::endl;
 			return 1;
 		}
 		long long temp = strtol(argv[i], NULL, 10);
 		if (temp > INT_MAX || temp <= 0) {
-			std::cerr << "Error" << std::endl;
 			return 1;
 		}
 		input[i] = temp;
@@ -115,8 +116,9 @@ int main(int argc, char** argv) {
 	}
 	int output;
 	if (std::cin >> output) {
-		std::cout << "KO" << std::endl;
-		return 0;
+		std::cerr << "KO" << std::endl;
+		return 1;
 	}
+
 	std::cout << "OK" << std::endl;
 }
