@@ -5,3 +5,6 @@
 
 *.swp
 
+#presentation
+
+#*.cpp
